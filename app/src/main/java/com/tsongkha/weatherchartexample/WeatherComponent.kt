@@ -8,7 +8,7 @@ import javax.inject.Singleton
 /**
  * Created by rawsond on 17/09/17.
  */
-@Component(modules = arrayOf(TemperatureRepositoryModule::class, AndroidSupportInjectionModule::class))
+@Component(modules = arrayOf(MainActivityModule::class, AndroidSupportInjectionModule::class))
 @Singleton
 interface WeatherComponent : AndroidInjector<WeatherApplication> {
 

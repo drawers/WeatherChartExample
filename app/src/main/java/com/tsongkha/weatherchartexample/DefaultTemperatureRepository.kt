@@ -4,11 +4,12 @@ import io.reactivex.Observable
 import io.reactivex.rxkotlin.toObservable
 import org.threeten.bp.Duration
 import org.threeten.bp.ZonedDateTime
+import javax.inject.Inject
 
 /**
  * Created by rawsond on 17/09/17.
  */
-class DefaultTemperatureRepository(private val generator: TemperatureSampleGenerator) : TemperatureRepository {
+class DefaultTemperatureRepository @Inject constructor(private val generator : TemperatureSampleGenerator) : TemperatureRepository {
 
     override fun temperatures(): Observable<TemperatureSample> {
         return temperatures(ZonedDateTime.now().minusDays(50), ZonedDateTime.now());
