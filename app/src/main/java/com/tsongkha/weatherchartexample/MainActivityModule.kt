@@ -10,6 +10,6 @@ import dagger.android.ContributesAndroidInjector
 abstract class MainActivityModule {
 
     @ActivityScope
-    @ContributesAndroidInjector(modules = arrayOf(TemperatureRepositoryModule::class))
+    @ContributesAndroidInjector(modules = arrayOf(TemperatureRepositoryModule::class, WeatherModule::class))
     abstract fun mainActivity() : MainActivity
 }

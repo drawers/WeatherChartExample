@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WeatherChartExample</string>
+    <string name="dataset_label">Temperatures</string>
 </resources>
