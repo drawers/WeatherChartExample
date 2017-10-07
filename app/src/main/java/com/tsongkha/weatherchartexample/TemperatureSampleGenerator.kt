@@ -6,9 +6,9 @@ import javax.inject.Inject
 /**
  * Created by rawsond on 22/09/17.
  */
-class TemperatureSampleGenerator @Inject constructor(val rng : RandomNumberGenerator, val max : Float = 40f) {
+class TemperatureSampleGenerator @Inject constructor(val rng: RandomNumberGenerator, val min: Float = 16f, val max: Float = 25f) {
 
     fun generate(zdt : ZonedDateTime) : TemperatureSample {
-        return TemperatureSample(zdt, rng.nextFloat(max));
+        return TemperatureSample(zdt, rng.nextFloat(min, max));
     }
 }

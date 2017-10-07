@@ -9,6 +9,11 @@ import javax.inject.Inject
 class RandomNumberGenerator @Inject constructor(private val random : Random) {
 
     fun nextFloat(max: Float) : Float {
-        return random.nextFloat() * max;
+        return random.nextFloat() * max
+    }
+
+    fun nextFloat(min : Float, max: Float) : Float {
+        val range = max - min
+        return min + nextFloat(range)
     }
 }
