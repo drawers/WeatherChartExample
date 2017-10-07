@@ -3,7 +3,6 @@ package com.tsongkha.weatherchartexample
 import com.github.mikephil.charting.data.Entry
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.observers.DisposableCompletableObserver
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.schedulers.Schedulers

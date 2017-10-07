@@ -5,9 +5,9 @@ import javax.inject.Inject
 /**
  * Created by rawsond on 27/09/17.
  */
-class LabelFactory @Inject constructor() {
+class LabelFactory @Inject constructor(private val formatter : SimpleTimeFormatter) {
 
     fun create(sample: TemperatureSample) : String {
-        return sample.zdt.toLocalTime().toString();
+        return formatter.format(sample.zdt.toLocalTime())
     }
 }
