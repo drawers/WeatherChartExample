@@ -3,6 +3,8 @@ package com.tsongkha.weatherchartexample
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.toObservable
 import org.threeten.bp.Duration
+import org.threeten.bp.LocalDate
+import org.threeten.bp.ZoneId
 import org.threeten.bp.ZonedDateTime
 import javax.inject.Inject
 
@@ -12,7 +14,7 @@ import javax.inject.Inject
 class DefaultTemperatureRepository @Inject constructor(private val generator : TemperatureSampleGenerator) : TemperatureRepository {
 
     override fun temperatures(): Observable<TemperatureSample> {
-        return temperatures(ZonedDateTime.now().minusDays(50), ZonedDateTime.now());
+        return temperatures(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).minusDays(1), ZonedDateTime.now());
     }
 
     override fun temperatures(startInclusive: ZonedDateTime, endInclusive: ZonedDateTime): Observable<TemperatureSample> {

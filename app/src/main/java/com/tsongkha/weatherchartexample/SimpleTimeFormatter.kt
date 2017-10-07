@@ -1,6 +1,5 @@
 package com.tsongkha.weatherchartexample
 
-import android.text.format.Formatter
 import org.threeten.bp.LocalTime
 import org.threeten.bp.format.DateTimeFormatter
 import javax.inject.Inject
