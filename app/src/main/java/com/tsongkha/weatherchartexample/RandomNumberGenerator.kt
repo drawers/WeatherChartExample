@@ -13,7 +13,16 @@ class RandomNumberGenerator @Inject constructor(private val random : Random) {
     }
 
     fun nextFloat(min : Float, max: Float) : Float {
+        if (max < min) throw IllegalArgumentException("Max must not be less than min")
+
         val range = max - min
         return min + nextFloat(range)
+    }
+
+    fun nextInt(min : Int, max : Int) : Int {
+        if (max < min) throw IllegalArgumentException("Max must not be less than min")
+
+        val range = max - min;
+        return min + random.nextInt();
     }
 }

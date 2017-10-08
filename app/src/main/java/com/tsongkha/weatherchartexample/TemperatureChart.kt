@@ -2,11 +2,13 @@ package com.tsongkha.weatherchartexample
 
 import android.graphics.Color
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.res.ResourcesCompat
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.formatter.DefaultValueFormatter
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 
 /**
@@ -23,8 +25,10 @@ class TemperatureChart(val delegate : LineChart) {
             setDrawFilled(true)
             setDrawCircles(false)
             setFillDrawable(ContextCompat.getDrawable(delegate.context, R.drawable.fade_blue))
-            mode = LineDataSet.Mode.HORIZONTAL_BEZIER
-            lineWidth = 4f
+            mode = LineDataSet.Mode.CUBIC_BEZIER
+            lineWidth = 1f
+            color = ResourcesCompat.getColor(delegate.resources, R.color.darkBlue, null)
+            valueFormatter = DefaultValueFormatter(0)
         }
 
 
@@ -38,13 +42,17 @@ class TemperatureChart(val delegate : LineChart) {
         with(delegate.xAxis) {
             valueFormatter = IndexAxisValueFormatter(labels);
             granularity = 1f
+            setDrawLabels(true)
             setDrawGridLines(false)
             position = XAxis.XAxisPosition.BOTTOM
         }
 
         with(delegate.axisLeft) {
             setDrawGridLines(false)
-            axisMinimum = 0f
+            setDrawAxisLine(false)
+            setDrawLabels(false)
+            axisMinimum = 12f
+            axisMaximum = 25f
         }
 
         with(delegate.axisRight) {
