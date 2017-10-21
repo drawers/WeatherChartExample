@@ -31,13 +31,8 @@ class TemperatureChart(val delegate : LineChart) {
             valueFormatter = DefaultValueFormatter(0)
         }
 
-
         val lineData = LineData(lineDataSet)
-
         delegate.data = lineData
-        with(delegate.data) {
-
-        }
 
         with(delegate.xAxis) {
             valueFormatter = IndexAxisValueFormatter(labels);
@@ -59,6 +54,9 @@ class TemperatureChart(val delegate : LineChart) {
             isEnabled = false
         }
 
-        delegate.description.isEnabled = false;
+        delegate.description.isEnabled = false
+        delegate.isHighlightPerTapEnabled = false
+        delegate.isHighlightPerDragEnabled = false
+        delegate.animateY(1500)
     }
 }
