@@ -1,6 +1,7 @@
-package com.tsongkha.weatherchartexample
+package com.tsongkha.weatherchartexample.stories.weather.charting
 
 import com.github.mikephil.charting.data.Entry
+import com.tsongkha.weatherchartexample.stories.weather.repo.TemperatureSample
 import javax.inject.Inject
 
 /**

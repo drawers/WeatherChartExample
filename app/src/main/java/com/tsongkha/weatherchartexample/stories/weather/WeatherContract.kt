@@ -1,6 +1,7 @@
-package com.tsongkha.weatherchartexample
+package com.tsongkha.weatherchartexample.stories.weather
 
 import com.github.mikephil.charting.data.Entry
+import org.threeten.bp.LocalDate
 import org.threeten.bp.ZonedDateTime
 
 /**
@@ -9,6 +10,8 @@ import org.threeten.bp.ZonedDateTime
 interface WeatherContract {
 
     interface Presenter {
+
+        fun load(position: Int)
 
         fun loadTemperatures(startInclusive : ZonedDateTime, endInclusive : ZonedDateTime)
 
@@ -20,6 +23,8 @@ interface WeatherContract {
     interface View {
 
         fun showChart(entries: List<Entry>, labels : List<String>)
+
+        fun showTitle(title : String)
     }
 
     interface Interactor {

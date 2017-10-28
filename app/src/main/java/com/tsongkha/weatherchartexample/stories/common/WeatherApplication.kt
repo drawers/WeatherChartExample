@@ -1,4 +1,4 @@
-package com.tsongkha.weatherchartexample
+package com.tsongkha.weatherchartexample.stories.common
 
 import com.jakewharton.threetenabp.AndroidThreeTen
 import dagger.android.AndroidInjector

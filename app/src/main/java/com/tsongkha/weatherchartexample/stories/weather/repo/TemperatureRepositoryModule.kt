@@ -1,5 +1,6 @@
-package com.tsongkha.weatherchartexample
+package com.tsongkha.weatherchartexample.stories.weather.repo
 
+import com.tsongkha.weatherchartexample.stories.common.ActivityScope
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
