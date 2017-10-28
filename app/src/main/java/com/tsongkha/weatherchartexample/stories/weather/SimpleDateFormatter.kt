@@ -12,11 +12,7 @@ import javax.inject.Inject
  */
 class SimpleDateFormatter @Inject constructor(ctx : Context) {
 
-    val dtf : DateFormat
-
-    init {
-        dtf = android.text.format.DateFormat.getMediumDateFormat(ctx)
-    }
+    val dtf : DateFormat = android.text.format.DateFormat.getMediumDateFormat(ctx)
 
     fun format(date : LocalDate) : String {
         val javaDate = Date(date.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli())

@@ -23,6 +23,6 @@ class RandomNumberGenerator @Inject constructor(private val random : Random) {
         if (max < min) throw IllegalArgumentException("Max must not be less than min")
 
         val range = max - min;
-        return min + random.nextInt();
+        return min + random.nextInt(range);
     }
 }
