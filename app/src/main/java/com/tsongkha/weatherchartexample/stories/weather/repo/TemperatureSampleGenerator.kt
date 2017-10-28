@@ -1,4 +1,4 @@
-package com.tsongkha.weatherchartexample
+package com.tsongkha.weatherchartexample.stories.weather.repo
 
 import org.threeten.bp.ZonedDateTime
 import javax.inject.Inject

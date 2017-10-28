@@ -1,4 +1,4 @@
-package com.tsongkha.weatherchartexample
+package com.tsongkha.weatherchartexample.stories.weather.charting
 
 import org.threeten.bp.LocalTime
 import org.threeten.bp.format.DateTimeFormatter

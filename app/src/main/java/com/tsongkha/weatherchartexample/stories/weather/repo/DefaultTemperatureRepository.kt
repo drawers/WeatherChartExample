@@ -1,4 +1,4 @@
-package com.tsongkha.weatherchartexample
+package com.tsongkha.weatherchartexample.stories.weather.repo
 
 import io.reactivex.Observable
 import io.reactivex.rxkotlin.toObservable

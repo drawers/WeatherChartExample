@@ -1,4 +1,4 @@
-package com.tsongkha.weatherchartexample
+package com.tsongkha.weatherchartexample.stories.weather.repo
 
 import java.util.*
 import javax.inject.Inject

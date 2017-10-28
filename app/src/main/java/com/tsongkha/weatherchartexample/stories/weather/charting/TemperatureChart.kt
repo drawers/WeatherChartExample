@@ -1,6 +1,5 @@
-package com.tsongkha.weatherchartexample
+package com.tsongkha.weatherchartexample.stories.weather.charting
 
-import android.graphics.Color
 import android.support.v4.content.ContextCompat
 import android.support.v4.content.res.ResourcesCompat
 import com.github.mikephil.charting.charts.LineChart
@@ -10,6 +9,7 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.DefaultValueFormatter
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.tsongkha.weatherchartexample.R
 
 /**
  * Created by rawsond on 24/09/17.
