@@ -13,6 +13,13 @@ class SwipeActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_swipe)
-        swipe_viewpager.adapter = SwipePagerAdapter(supportFragmentManager!!)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        with (SwipePagerAdapter(supportFragmentManager!!)) {
+            swipe_viewpager.adapter = this
+            notifyDataSetChanged() //in order to trigger reload of fragment
+        }
     }
 }

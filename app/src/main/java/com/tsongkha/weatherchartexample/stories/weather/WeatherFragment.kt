@@ -50,8 +50,8 @@ class WeatherFragment : WeatherContract.View, DaggerFragment() {
         weather_title.text = title
     }
 
-    override fun onDestroy() {
+    override fun onPause() {
         presenter.dropView()
-        super.onDestroy()
+        super.onPause()
     }
 }

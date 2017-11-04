@@ -17,16 +17,14 @@ import com.tsongkha.weatherchartexample.R
 class TemperatureChart(val delegate : LineChart) {
 
     fun setData(entries: List<Entry>, labels : List<String>) {
-
-        delegate.data = null;
+        delegate.clear()
         val lineDataSet = LineDataSet(entries, delegate.context.getString(R.string.dataset_label))
 
         with(lineDataSet) {
             setDrawFilled(true)
             setDrawCircles(false)
             setFillDrawable(ContextCompat.getDrawable(delegate.context, R.drawable.fade_blue))
-            mode = LineDataSet.Mode.CUBIC_BEZIER
-            lineWidth = 1f
+            lineWidth = 2f
             color = ResourcesCompat.getColor(delegate.resources, R.color.darkBlue, null)
             valueFormatter = DefaultValueFormatter(0)
         }
@@ -46,8 +44,8 @@ class TemperatureChart(val delegate : LineChart) {
             setDrawGridLines(false)
             setDrawAxisLine(false)
             setDrawLabels(false)
-            axisMinimum = 12f
-            axisMaximum = 25f
+            axisMinimum = 0f
+            axisMaximum = 22f
         }
 
         with(delegate.axisRight) {
@@ -57,6 +55,7 @@ class TemperatureChart(val delegate : LineChart) {
         delegate.description.isEnabled = false
         delegate.isHighlightPerTapEnabled = false
         delegate.isHighlightPerDragEnabled = false
+        delegate.disableScroll()
         delegate.animateY(1500)
     }
 }
