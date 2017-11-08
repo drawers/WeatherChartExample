@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.github.mikephil.charting.data.Entry
 import com.tsongkha.weatherchartexample.R
-import com.tsongkha.weatherchartexample.stories.weather.charting.TemperatureChart
+import com.tsongkha.weatherchartexample.stories.weather.charting.WeatherChart
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.weather_card.*
 import javax.inject.Inject
@@ -18,7 +18,7 @@ class WeatherFragment : WeatherContract.View, DaggerFragment() {
 
     @Inject lateinit var presenter: WeatherContract.Presenter
 
-    lateinit var chart: TemperatureChart
+    lateinit var chart: WeatherChart
 
     companion object {
         @JvmStatic
@@ -36,7 +36,7 @@ class WeatherFragment : WeatherContract.View, DaggerFragment() {
 
     override fun onResume() {
         super.onResume()
-        chart = TemperatureChart(weather_linechart)
+        chart = WeatherChart(weather_linechart)
         val position = arguments?.getInt(WeatherConstants.VIEWPAGER_POSITION) ?: 0
         presenter.takeView(this)
         presenter.load(position)

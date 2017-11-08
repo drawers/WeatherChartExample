@@ -1,20 +1,33 @@
 package com.tsongkha.weatherchartexample.stories.weather.charting
 
-import android.support.v4.content.ContextCompat
-import android.support.v4.content.res.ResourcesCompat
+import android.graphics.BitmapFactory.decodeResource
+import android.support.v4.content.ContextCompat.getDrawable
+import android.support.v4.content.res.ResourcesCompat.getColor
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.formatter.DefaultValueFormatter
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.tsongkha.weatherchartexample.R
 
 /**
  * Created by rawsond on 24/09/17.
+ *
+ * Decorates a LineChart
+ *
+ * We stop using dependency injection at the level of the android.view.View since it is not feasible
+ * to inject all of the parameters of the View.
  */
-class TemperatureChart(val delegate : LineChart) {
+class WeatherChart(val delegate : LineChart) {
+
+    init {
+        with(WeatherLineChartRenderer(delegate, delegate.animator, delegate.viewPortHandler, decodeResource(delegate.resources, R.drawable.cloudy))) {
+            imageSize = 4
+            drawPredicate = { it > 0f && it.toInt() % 8 == 0 }
+            delegate.renderer = this
+        }
+    }
 
     fun setData(entries: List<Entry>, labels : List<String>) {
         delegate.clear()
@@ -23,10 +36,11 @@ class TemperatureChart(val delegate : LineChart) {
         with(lineDataSet) {
             setDrawFilled(true)
             setDrawCircles(false)
-            setFillDrawable(ContextCompat.getDrawable(delegate.context, R.drawable.fade_blue))
+            setFillDrawable(getDrawable(delegate.context, R.drawable.fade_blue))
             lineWidth = 2f
-            color = ResourcesCompat.getColor(delegate.resources, R.color.darkBlue, null)
-            valueFormatter = DefaultValueFormatter(0)
+            color = getColor(delegate.resources, R.color.darkBlue, null)
+            valueFormatter = ChartValueFormatter()
+                                .apply { formatPredicate = { it.toInt() % 2 == 1 } }
         }
 
         val lineData = LineData(lineDataSet)
