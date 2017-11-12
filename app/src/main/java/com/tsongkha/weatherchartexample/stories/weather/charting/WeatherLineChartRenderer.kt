@@ -15,12 +15,14 @@ import com.github.mikephil.charting.utils.ViewPortHandler
 class WeatherLineChartRenderer(chart: LineDataProvider, animator: ChartAnimator, viewPortHandler: ViewPortHandler, private val sourceBitmap: Bitmap)
     : LineChartRenderer(chart, animator, viewPortHandler) {
 
-    var TAG: String = this.javaClass.simpleName!!
+    val TAG: String = this.javaClass.simpleName!!
+
     var imageSize: Int = 5
     var drawPredicate: (Float) -> Boolean = { true }
 
-    private var resizedBitmap: Bitmap? = null
     private val imagePositionBuffer = FloatArray(2)
+
+    private var resizedBitmap: Bitmap? = null
 
     override fun drawExtras(c: Canvas?) {
         super.drawExtras(c)

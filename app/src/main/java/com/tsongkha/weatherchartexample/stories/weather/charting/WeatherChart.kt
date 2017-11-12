@@ -31,9 +31,8 @@ class WeatherChart(val delegate : LineChart) {
 
     fun setData(entries: List<Entry>, labels : List<String>) {
         delegate.clear()
-        val lineDataSet = LineDataSet(entries, delegate.context.getString(R.string.dataset_label))
 
-        with(lineDataSet) {
+        with(LineDataSet(entries, delegate.context.getString(R.string.dataset_label))) {
             setDrawFilled(true)
             setDrawCircles(false)
             setFillDrawable(getDrawable(delegate.context, R.drawable.fade_blue))
@@ -41,10 +40,8 @@ class WeatherChart(val delegate : LineChart) {
             color = getColor(delegate.resources, R.color.darkBlue, null)
             valueFormatter = ChartValueFormatter()
                                 .apply { formatPredicate = { it.toInt() % 2 == 1 } }
+            delegate.data = LineData(this)
         }
-
-        val lineData = LineData(lineDataSet)
-        delegate.data = lineData
 
         with(delegate.xAxis) {
             valueFormatter = IndexAxisValueFormatter(labels);

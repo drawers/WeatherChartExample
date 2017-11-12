@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="24dp"
                 android:paddingTop="24dp"
-                android:text="title"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/weather_linechart"
