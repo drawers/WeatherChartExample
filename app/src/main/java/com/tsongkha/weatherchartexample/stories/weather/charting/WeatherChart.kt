@@ -21,14 +21,6 @@ import com.tsongkha.weatherchartexample.R
  */
 class WeatherChart(val delegate : LineChart) {
 
-    init {
-        with(WeatherLineChartRenderer(delegate, delegate.animator, delegate.viewPortHandler, decodeResource(delegate.resources, R.drawable.cloudy))) {
-            imageSize = 4
-            drawPredicate = { it > 0f && it.toInt() % 8 == 0 }
-            delegate.renderer = this
-        }
-    }
-
     fun setData(entries: List<Entry>, labels : List<String>) {
         delegate.clear()
 
