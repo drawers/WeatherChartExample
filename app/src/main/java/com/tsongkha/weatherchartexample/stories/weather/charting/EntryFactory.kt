@@ -10,6 +10,6 @@ import javax.inject.Inject
 class EntryFactory @Inject constructor() {
 
     fun create(index: Int, sample : TemperatureSample) : Entry {
-        return Entry(index.toFloat(), sample.temperature);
+        return Entry(index.toFloat(), sample.temperature)
     }
 }

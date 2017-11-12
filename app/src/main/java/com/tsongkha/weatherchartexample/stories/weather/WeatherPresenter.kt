@@ -46,7 +46,7 @@ constructor (private val repo: TemperatureRepository,
         view = null
     }
 
-    override fun loadTemperatures(startInclusive: ZonedDateTime, endInclusive: ZonedDateTime) {
+    private fun loadTemperatures(startInclusive: ZonedDateTime, endInclusive: ZonedDateTime) {
         var count = 0
         repo.temperatures()
                 .subscribeOn(Schedulers.newThread())
